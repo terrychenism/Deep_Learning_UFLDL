@@ -70,8 +70,8 @@ title('xHat');
 epsilon = 1e-5;
 % -------------------- YOUR CODE HERE -------------------- 
 xPCAWhite = zeros(size(x)); % You need to compute this
-%xPCAwhite = diag(1./sqrt(diag(D) + epsilon)) * u' * x;
-xPCAWhite = inv(S+eye(2)*epsilon).^0.5*xRot;
+xPCAWhite = diag(1./sqrt(diag(S) + epsilon)) * u' * x;
+%xPCAWhite = inv(S+eye(2)*epsilon).^0.5*xRot;
 % -------------------------------------------------------- 
 figure(4);
 scatter(xPCAWhite(1, :), xPCAWhite(2, :));
@@ -83,8 +83,8 @@ title('xPCAWhite');
 
 % -------------------- YOUR CODE HERE -------------------- 
 xZCAWhite = zeros(size(x)); % You need to compute this
-xZCAWhite = u*xPCAWhite;
-
+%xZCAWhite = u*xPCAWhite;
+xZCAWhite = u * diag(1./sqrt(diag(S) + epsilon)) * u' * x;
 
 % -------------------------------------------------------- 
 figure(5);
