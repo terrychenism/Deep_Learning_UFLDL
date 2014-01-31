@@ -20,8 +20,8 @@ title('Raw data');
 
 % -------------------- YOUR CODE HERE -------------------- 
 u = zeros(size(x, 1)); % You need to compute this
-sigma = x * x' / size(x, 2);
-[U,S,V] = svd(sigma);
+sigma = x * x' /45;
+[u,S,V] = svd(sigma);
 % -------------------------------------------------------- 
 hold on
 plot([0 u(1,1)], [0 u(2,1)]);
@@ -36,7 +36,7 @@ hold off
 
 % -------------------- YOUR CODE HERE -------------------- 
 xRot = zeros(size(x)); % You need to compute this
-xRot = U' * x;          % rotated version of the data. 
+xRot = u' * x;          % rotated version of the data. 
 
 % -------------------------------------------------------- 
 
@@ -55,7 +55,7 @@ title('xRot');
 % -------------------- YOUR CODE HERE -------------------- 
 k = 1; % Use k = 1 and project the data onto the first eigenbasis
 xHat = zeros(size(x)); % You need to compute this
-xHat=U(:,1)*xRot(1,:);
+xHat=u(:,1)*xRot(1,:);
 
 % -------------------------------------------------------- 
 figure(3);
@@ -70,10 +70,8 @@ title('xHat');
 epsilon = 1e-5;
 % -------------------- YOUR CODE HERE -------------------- 
 xPCAWhite = zeros(size(x)); % You need to compute this
-
-xPCAwhite = diag(1./sqrt(diag(S) + epsilon)) * U' * x;
-
-%xPCAWhite=inv(V+eye(2)*epsilon).^0.5*xRot;
+%xPCAwhite = diag(1./sqrt(diag(D) + epsilon)) * u' * x;
+xPCAWhite = inv(S+eye(2)*epsilon).^0.5*xRot;
 % -------------------------------------------------------- 
 figure(4);
 scatter(xPCAWhite(1, :), xPCAWhite(2, :));
@@ -85,8 +83,8 @@ title('xPCAWhite');
 
 % -------------------- YOUR CODE HERE -------------------- 
 xZCAWhite = zeros(size(x)); % You need to compute this
-%xZCAwhite = U*xPCAWhite;
-xZCAwhite =U * diag(1./sqrt(diag(S) + epsilon)) * U' * x;
+xZCAWhite = u*xPCAWhite;
+
 
 % -------------------------------------------------------- 
 figure(5);
