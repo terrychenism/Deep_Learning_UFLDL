@@ -23,6 +23,8 @@ M = zeros(numClasses,numCases);
 M = theta*data;  
 [~,pred] = max(M ,[] ,1);  
 
+% M = theta*data;
+% [Y,pred] = max(M,[],1);
 
 % ---------------------------------------------------------------------
 
