@@ -33,11 +33,11 @@ thetagrad=(-1/numCases*x*(groundTruth'-z')+lambda*theta')';
 
 % 
 % M = theta*data;
-% NorM = bsxfun(@minus, M, max(M, [], 1));  %?????????????????M???????????
+% NorM = bsxfun(@minus, M, max(M, [], 1)); 
 % ExpM = exp(NorM);
-% P = bsxfun(@rdivide,ExpM,sum(ExpM));      %??
-% cost = -1/numClasses*(groundTruth(:)'*log(P(:)))+lambda/2*(theta(:)'*theta(:)); %????
-% thetagrad =  -1/numClasses*((groundTruth-P)*data')+lambda*theta;       %??
+% P = bsxfun(@rdivide,ExpM,sum(ExpM));      
+% cost = -1/numClasses*(groundTruth(:)'*log(P(:)))+lambda/2*(theta(:)'*theta(:)); 
+% thetagrad =  -1/numClasses*((groundTruth-P)*data')+lambda*theta;      
 
 
 
