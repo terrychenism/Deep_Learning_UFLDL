@@ -31,13 +31,12 @@ cost=-1/numCases*sum(sum((groundTruth.*log(z))))+lambda/2*sum(sum(theta.^2));
 
 thetagrad=(-1/numCases*x*(groundTruth'-z')+lambda*theta')';
 
-% 
 % M = theta*data;
-% NorM = bsxfun(@minus, M, max(M, [], 1)); 
+% NorM = bsxfun(@minus, M, max(M, [], 1));  %归一化，每列减去此列的最大值，使得M的每个元素不至于太大。
 % ExpM = exp(NorM);
-% P = bsxfun(@rdivide,ExpM,sum(ExpM));      
-% cost = -1/numClasses*(groundTruth(:)'*log(P(:)))+lambda/2*(theta(:)'*theta(:)); 
-% thetagrad =  -1/numClasses*((groundTruth-P)*data')+lambda*theta;      
+% P = bsxfun(@rdivide,ExpM,sum(ExpM));      %概率
+% cost = -1/numClasses*(groundTruth(:)'*log(P(:)))+lambda/2*(theta(:)'*theta(:)); %代价函数
+% thetagrad =  -1/numClasses*((groundTruth-P)*data')+lambda*theta;       %梯度    
 
 
 
