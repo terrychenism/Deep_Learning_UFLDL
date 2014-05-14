@@ -1,19 +1,4 @@
 // MnistClassify.cpp
-//
-// Author: Eric Yuan
-// Blog: http://eric-yuan.me
-// You are FREE to use the following code for ANY purpose.
-//
-// A deep net hand writing classifier.
-// Using sparse autoencoder and softmax regression.
-// First train sparse autoencoder layer by layer,
-// then train softmax regression, 
-// and fine-tune the whole network.
-//
-// To run this code, you should have OpenCV in your computer.
-// Have fun with it
-
-#include "opencv2/core/core.hpp"
 #include "opencv2/imgproc/imgproc.hpp"
 #include "opencv2/highgui/highgui.hpp"
 #include <math.h>
