@@ -1,3 +1,17 @@
+// MnistClassify.cpp
+//
+// Author: Eric Yuan
+// Blog: http://eric-yuan.me
+// You are FREE to use the following code for ANY purpose.
+//
+// A deep net hand writing classifier.
+// Using sparse autoencoder and softmax regression.
+// First train sparse autoencoder layer by layer,
+// then train softmax regression, 
+// and fine-tune the whole network.
+//
+// To run this code, you should have OpenCV in your computer.
+// Have fun with it
 
 #include "opencv2/core/core.hpp"
 #include "opencv2/imgproc/imgproc.hpp"
@@ -584,10 +598,10 @@ main(int argc, char** argv)
     // Just for testing the algorithm, you can enable the following lines, 
     // It just use the first 500 training samples, for accelerate the calculation.
     // However, mini training sample size leads to lower test accuracy.
-    // Rect roi = cv::Rect(0, 0, 500, trainX.rows);
-    // trainX = trainX(roi);
-    // roi = cv::Rect(0, 0, 500, trainY.rows);
-    // trainY = trainY(roi);
+     /*Rect roi = cv::Rect(0, 0, 500, trainX.rows);
+     trainX = trainX(roi);
+     roi = cv::Rect(0, 0, 500, trainY.rows);
+     trainY = trainY(roi);*/
 
     cout<<"Read trainX successfully, including "<<trainX.rows<<" features and "<<trainX.cols<<" samples."<<endl;
     cout<<"Read trainY successfully, including "<<trainY.cols<<" samples"<<endl;
@@ -635,6 +649,7 @@ main(int argc, char** argv)
     end = clock();
     cout<<"Totally used time: "<<((double)(end - start)) / CLOCKS_PER_SEC<<" second"<<endl;
 
-    //waitKey(0);
+    waitKey(0);
+	system("pause");
     return 0;
 }
