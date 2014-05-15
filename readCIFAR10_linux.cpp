@@ -94,16 +94,14 @@ read_CIFAR10(Mat &trainX, Mat &testX, Mat &trainY, Mat &testY){
     filename = "cifar-10-batches-bin/data_batch_1.bin";
     char *y = new char[filename.length() + 1]; 
     strcpy(y, filename.c_str());
-   
     vector<Mat> batch1;
     Mat label1 = Mat::zeros(1, 10000, CV_64FC1);    
     read_batch(y, batch1, label1);
-     delete[] y;
+    delete[] y;
 
     filename = "cifar-10-batches-bin/data_batch_2.bin";
     y = new char[filename.length() + 1]; 
-    strcpy(y, filename.c_str());
-    
+    strcpy(y, filename.c_str());    
     vector<Mat> batch2;
     Mat label2 = Mat::zeros(1, 10000, CV_64FC1);    
     read_batch(y, batch2, label2);
@@ -112,7 +110,6 @@ read_CIFAR10(Mat &trainX, Mat &testX, Mat &trainY, Mat &testY){
     filename = "cifar-10-batches-bin/data_batch_3.bin";
     y = new char[filename.length() + 1]; 
     strcpy(y, filename.c_str());
-    
     vector<Mat> batch3;
     Mat label3 = Mat::zeros(1, 10000, CV_64FC1);    
     read_batch(y, batch3, label3);
@@ -121,14 +118,13 @@ read_CIFAR10(Mat &trainX, Mat &testX, Mat &trainY, Mat &testY){
     filename = "cifar-10-batches-bin/data_batch_4.bin";
     y = new char[filename.length() + 1]; 
     strcpy(y, filename.c_str());
-    
     vector<Mat> batch4;
     Mat label4 = Mat::zeros(1, 10000, CV_64FC1);    
     read_batch(y, batch4, label4);
     delete[] y;
 
     filename = "cifar-10-batches-bin/data_batch_5.bin";
-  y = new char[filename.length() + 1]; 
+    y = new char[filename.length() + 1]; 
     strcpy(y, filename.c_str());
     vector<Mat> batch5;
     Mat label5 = Mat::zeros(1, 10000, CV_64FC1);    
@@ -136,12 +132,13 @@ read_CIFAR10(Mat &trainX, Mat &testX, Mat &trainY, Mat &testY){
     delete[] y;
 
     filename = "cifar-10-batches-bin/test_batch.bin";
-      y = new char[filename.length() + 1]; 
+    y = new char[filename.length() + 1]; 
     strcpy(y, filename.c_str());
     vector<Mat> batcht;
     Mat labelt = Mat::zeros(1, 10000, CV_64FC1);    
     read_batch(y, batcht, labelt);
     delete[] y;
+    
     Mat mt1 = concatenateMat(batch1);
     Mat mt2 = concatenateMat(batch2);
     Mat mt3 = concatenateMat(batch3);
